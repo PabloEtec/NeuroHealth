@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Neurodiversidade</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button, input[type="file"] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resposta, #palavraSorteada {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #007bff;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        label:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Assistente de Neurodiversidade</h1>
+        <button id="sortearPalavra">Sortear Palavra</button>
+        <div id="palavraSorteada"></div>
+        
+        <label for="imagem">Envie a Imagem da Sua Escrita</label>
+        <input type="file" id="imagem" accept="image/*">
+        <button id="enviarImagem">Enviar Imagem</button>
+        
+        <div id="resposta"></div>
+    </div>
+    
+    <script>
+        const palavras = ["casa", "carro", "gato", "livro", "flores", "neurodiversidade"];
+        const palavraSorteadaDiv = document.getElementById('palavraSorteada');
+        const enviarImagemBtn = document.getElementById('enviarImagem');
+        const imagemInput = document.getElementById('imagem');
+
+        document.getElementById('sortearPalavra').addEventListener('click', () => {
+            const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)];
+            palavraSorteadaDiv.innerText = `Escreva: ${palavraAleatoria}`;
+        });
+
+        enviarImagemBtn.addEventListener('click', async () => {
+            const file = imagemInput.files[0];
+            if (!file) {
+                alert("Por favor, envie uma imagem.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('imagem', file);
+
+            try {
+                const response = await fetch('http://localhost:3000/analisar-imagem', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                document.getElementById('resposta').innerText = data.resposta;
+            } catch (error) {
+                console.error('Erro ao enviar a imagem:', error);
+                document.getElementById('resposta').innerText = 'Houve um erro ao processar sua imagem.';
+            }
+        });
+    </script>
+</body>
+</html>

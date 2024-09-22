@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroHealth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#resources" class="nav-link">Recursos</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="profile-container">
+                <div id="profile-info" class="profile-info" style="display: none;">
+                    <span class="username">Bem-vindo, Usuário</span>
+                    <div class="profile-pic" onclick="toggleProfileMenu()">
+                        <img src="https://source.unsplash.com/40x40/?portrait" alt="Foto de Perfil">
+                    </div>
+                    <div id="profile-menu" class="profile-menu">
+                        <a href="#">Meu Perfil</a>
+                        <a href="#">Configurações</a>
+                        <a href="#">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>NeuroHealth</h1>
+            <p>POR UM MUNDO MELHOR.</p>
+            <a href="#resources" class="button">Recursos</a>
+        </div>
+    </section>
+
+    <section class="section" id="resources">
+        <h2>Ferramentas e Recursos</h2>
+        <p>Conheça ferramentas avançadas para lidar com a disgrafia:</p>
+        <ul>
+            <li><a href="https://example.com" target="_blank">Software de Reconhecimento de Texto</a> - Converta fala em texto com precisão.</li>
+            <li><a href="https://example.com" target="_blank">Aplicativos de Caligrafia</a> - Melhore sua escrita manual com práticas interativas.</li>
+            <li><a href="https://example.com" target="_blank">Ferramentas de Organização</a> - Visualize e organize suas ideias com eficiência.</li>
+        </ul>
+    </section>
+
+    <section class="section gallery" id="gallery">
+        <h2>Galeria de Imagens</h2>
+        <div class="gallery">
+            <img src="https://source.unsplash.com/1600x900/?learning" alt="Imagem 1" onclick="openLightbox(this.src)">
+            <img src="https://source.unsplash.com/1600x900/?technology" alt="Imagem 2" onclick="openLightbox(this.src)">
+            <img src="https://source.unsplash.com/1600x900/?education" alt="Imagem 3" onclick="openLightbox(this.src)">
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <a href="https://facebook.com" target="_blank" class="social-icon">FB</a>
+            <a href="https://twitter.com" target="_blank" class="social-icon">TW</a>
+            <a href="https://instagram.com" target="_blank" class="social-icon">IG</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        function openLightbox(src) {
+            let lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `<img src="${src}" class="lightbox-image">`;
+            lightbox.addEventListener('click', function() {
+                document.body.removeChild(lightbox);
+            });
+            document.body.appendChild(lightbox);
+        }
+
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profile-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('profile-menu');
+            const profilePic = document.querySelector('.profile-pic');
+            if (!profilePic.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+
+        const isLoggedIn = false;
+
+        if (isLoggedIn) {
+            document.getElementById('profile-info').style.display = 'flex';
+        } else {
+            document.getElementById('profile-info').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

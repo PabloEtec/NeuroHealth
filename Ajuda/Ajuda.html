@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="Ajuda.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EPUMA</title>
+   
+</head>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="gmail">Gmail</label>
+                <input type="email" id="gmail" name="gmail" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="role">Você é:</label>
+                <select id="role" name="role" required>
+                    <option value="paciente">Paciente</option>
+                    <option value="acompanhante">Acompanhante</option>
+                    <option value="profissional">Profissional da Saúde</option>
+                </select>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

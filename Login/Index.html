@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- login.html -->
+   <div class="background">
+        <div class="container">
+            <div class="login-box">
+                <div class="logo">
+                    <h1>Login</h1>
+                </div>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="Nome de Usuário" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+                <div class="forgot-password">
+                    <a href="#">Esqueci minha senha</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulação simples de autenticação
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (username === storedUsername && password === storedPassword) {
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'pagina_principal.html'; // Redireciona para a página principal
+            } else {
+                alert('Usuário ou senha inválidos.');
+            }
+        });
+    </script>
+    
+</body>
+</html>
+
+ 
