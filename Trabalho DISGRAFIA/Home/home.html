@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroHealth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="IMAGEM.png" href="image.png">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#resources" class="nav-link">Recursos</a>
+                <a href="#gallery" class="nav-link">Galeria</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="profile-container">
+                <div id="profile-info" class="profile-info" style="display: none;">
+                    <span class="username">Bem-vindo, Usuário</span>
+                    <div class="profile-pic" onclick="toggleProfileMenu()">
+                        <img src="https://source.unsplash.com/40x40/?portrait" alt="Foto de Perfil">
+                    </div>
+                    <div id="profile-menu" class="profile-menu">
+                        <a href="#">Meu Perfil</a>
+                        <a href="#">Configurações</a>
+                        <a href="#">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>NeuroHealth</h1>
+            <p>POR UM MUNDO MELHOR.</p>
+            <a href="#resources" class="button">Recursos</a>
+        </div>
+    </section>
+
+    <section class="section" id="resources">
+        <h2>Ferramentas e Recursos</h2>
+        <p>Conheça ferramentas avançadas para lidar com a disgrafia:</p>
+        <ul>
+            <li><a href="https://example.com" target="_blank">Software de Reconhecimento de Texto</a> - Converta fala em texto com precisão.</li>
+            <li><a href="https://example.com" target="_blank">Aplicativos de Caligrafia</a> - Melhore sua escrita manual com práticas interativas.</li>
+            <li><a href="https://example.com" target="_blank">Ferramentas de Organização</a> - Visualize e organize suas ideias com eficiência.</li>
+        </ul>
+    </section>
+
+    
+
+    <footer id="contact">
+        <div class="footer-content" style="color: white;"> <!-- Alteração da cor para branco -->
+            <p>Entre em contato:</p>
+            <p>Email: <a href="mailto:ALGUMACOISA@neurohealth.com" style="color: white;">contato@neurohealth.com</a></p>
+            <p>Telefone: <a href="tel:+3123232321231241" style="color: white;">(11) 91231231</a></p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        function openLightbox(src) {
+            let lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `<img src="${src}" class="lightbox-image">`;
+            lightbox.addEventListener('click', function() {
+                document.body.removeChild(lightbox);
+            });
+            document.body.appendChild(lightbox);
+        }
+
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profile-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('profile-menu');
+            const profilePic = document.querySelector('.profile-pic');
+            if (!profilePic.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+
+        const isLoggedIn = false;
+
+        if (isLoggedIn) {
+            document.getElementById('profile-info').style.display = 'flex';
+        } else {
+            document.getElementById('profile-info').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente sobre Disgrafia</title>
+    <link rel="icon" type="image.png" href="image.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0056b3;
+        }
+
+        #chat-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #0056b3;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-top: 20px;
+        }
+
+        .response {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            background-color: #0056b3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003f8a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Assistente Virtual sobre Disgrafia</h1>
+
+    <div id="chat-box">
+        <h2>Faça uma pergunta sobre disgrafia:</h2>
+        <div class="question">
+            <input type="text" id="userQuestion" placeholder="Digite sua pergunta aqui...">
+            <button onclick="getResponse()">Perguntar</button>
+        </div>
+        <div class="response" id="responseText"></div>
+    </div>
+
+    <script>
+        function getResponse() {
+            let question = document.getElementById("userQuestion").value.toLowerCase();
+            let response = "";
+
+            if (question.includes("o que é disgrafia")) {
+                response = "Disgrafia é um transtorno de aprendizagem que afeta a habilidade de escrita, incluindo problemas com a grafia, formação de letras e coerência textual.";
+            } else if (question.includes("quais são os sintomas da disgrafia")) {
+                response = "Os sintomas da disgrafia incluem escrita ilegível, dificuldades na coordenação motora ao escrever, espaçamento inconsistente entre palavras e letras, e dificuldade para organizar pensamentos por escrito.";
+            } else if (question.includes("como diagnosticar a disgrafia")) {
+                response = "O diagnóstico da disgrafia geralmente é feito por um psicopedagogo ou neurologista, que pode usar testes de escrita, leitura e desenvolvimento motor para avaliar a condição.";
+            } else if (question.includes("tratamento")) {
+                response = "O tratamento da disgrafia inclui terapias ocupacionais, apoio educacional especializado e exercícios para melhorar a coordenação motora fina e as habilidades de escrita.";
+            } else if (question.includes("causas da disgrafia")) {
+                response = "As causas da disgrafia não são totalmente conhecidas, mas acredita-se que esteja relacionada a fatores neurológicos e dificuldades no desenvolvimento motor e cognitivo.";
+            } else if (question.includes("disgrafia tem cura")) {
+                response = "Embora a disgrafia não tenha uma cura definitiva, ela pode ser gerenciada com intervenções adequadas, como terapias e suporte educacional, para ajudar a melhorar as habilidades de escrita.";
+            } else {
+                response = "Desculpe, não tenho uma resposta para essa pergunta. Por favor, pergunte algo relacionado à disgrafia.";
+            }
+
+            document.getElementById("responseText").innerText = response;
+        }
+    </script>
+
+</body>
+</html>

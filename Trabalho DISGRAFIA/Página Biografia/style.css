@@ -1,0 +1,129 @@
+/* Estilo Geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0a0f2c;
+    color: #e0e4ff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(90deg, #002853, #005099);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #e0e4ff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #e0e4ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00d9ff;
+}
+
+/* Seção Home */
+#home {
+    padding: 60px 20px;
+    text-align: center;
+    background: radial-gradient(circle, #002853, #001833);
+}
+
+#home h2 {
+    font-size: 3em;
+    color: #00d9ff;
+}
+
+#home p {
+    font-size: 1.3em;
+    margin: 20px 0;
+}
+
+button {
+    padding: 15px 30px;
+    background: #005099;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+button:hover {
+    background: #00d9ff;
+}
+
+/* Grid de Biografias */
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.bio-card {
+    background: #001833;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.bio-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Ajuste do tamanho das imagens */
+.bio-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    width: 150px; /* Largura máxima das imagens */
+    height: 150px; /* Altura máxima das imagens */
+    margin-bottom: 15px;
+    object-fit: cover; /* Mantém a proporção da imagem e centraliza */
+}
+
+.bio-card h3 {
+    font-size: 1.5em;
+    color: #00d9ff;
+}
+
+/* Rodapé */
+footer {
+    background-color: #001021;
+    color: #e0e4ff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
