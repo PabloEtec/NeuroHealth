@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(circle,rgb(255, 255, 255), #0fd3c3);
+    background: radial-gradient(circle,rgb(255, 255, 255), #0e8fc2);
     color: #e0e0e0;
     font-family: 'Orbitron', sans-serif;
     margin: 0;
@@ -19,7 +19,7 @@ header {
 
 h1 {
     font-size: 3em;
-    color: #0dc6ff;
+    color: #1295d6;
     text-transform: uppercase;
     letter-spacing: 2px;
     animation: glow 1.5s infinite alternate;
@@ -50,8 +50,9 @@ h1 {
     background-color: #1e1e1e;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 0 15px #00ffcc;
+    box-shadow: 0 0 15px #1b2120;
     gap: 15px;
+    
 }
 
 input[type="text"], textarea {
@@ -128,7 +129,7 @@ button:hover {
 
 h2 {
     margin-top: 0;
-    color: #00ffcc;
+    color:#00ffcc ;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
