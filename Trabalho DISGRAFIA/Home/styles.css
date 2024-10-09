@@ -251,12 +251,12 @@ footer {
     font-size: 1.2rem;
     font-weight: bold;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(19, 150, 202, 0.4);
     z-index: 1000;
 }
 
 #infant-mode-toggle:hover {
-    background: #0056b3;
+    background: #3f8fe4;
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
+    box-shadow: 0 6px 15px rgba(78, 101, 219, 0.6);
 }
