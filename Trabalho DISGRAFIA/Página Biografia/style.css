@@ -14,41 +14,46 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-/* Cabeçalho */
-header {
-    background: linear-gradient(90deg, #002853, #005099);
-    padding: 20px;
+/* NavBar */
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    background: #003366;
+    color: #ffffff;
+    padding: 9px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.nav-bar.scrolled {
+    background: #001f3f;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background: #00aaff;
+    color: #ffffff;
 }
 
 header h1 {
     font-size: 2.5em;
     color: #e0e4ff;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    color: #e0e4ff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #00d9ff;
 }
 
 /* Seção Home */
