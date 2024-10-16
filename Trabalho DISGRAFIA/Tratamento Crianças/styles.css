@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa; 
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #00aeff; 
+    padding: 20px;
+    color: white;
+    border-bottom: 4px solid #0486ff;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.activity-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.activity {
+    background-color: #ffffff; 
+    border-radius: 15px; 
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    transition: transform 0.3s ease; 
+}
+
+.activity:hover {
+    transform: scale(1.05); 
+}
+
+canvas {
+    border: 2px solid rgb(9, 130, 243); 
+    border-radius: 10px; 
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px; 
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 12px 25px; 
+    background-color: #008cff; 
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+button:hover {
+    background-color: #0b60ff; 
+    transform: scale(1.05); 
+}
+
+.matching-game {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.word, .image {
+    border: 2px solid #ffffff;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-color: #fff3e0; 
+    border-radius: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+.word:hover, .image:hover {
+    background-color: #ffffff; 
+}
+
+.reward-section {
+    margin-top: 20px;
+}
+
+#stars {
+    font-size: 2em;
+    color: gold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); 
+    margin-top: 10px; 
+}
+ 

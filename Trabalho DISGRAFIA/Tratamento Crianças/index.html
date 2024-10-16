@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Disgrafia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tratamento de Disgrafia para Crianças</h1>
+        <p>Aprenda e se divirta com nossos jogos e atividades!</p>
+    </header>
+
+    <section class="activity-section">
+        <div class="activity">
+            <h2>Desafio de Caligrafia</h2>
+            <canvas id="caligrafia"></canvas>
+            <button id="clear-canvas">Limpar</button>
+        </div>
+
+        <div class="activity">
+            <h2>Jogo de Correspondência</h2>
+            <p>Arraste as palavras até a imagem correspondente!</p>
+            <div class="matching-game">
+                <div class="word">Casa</div>
+                <div class="word">Árvore</div>
+                <div class="image" data-match="Casa"><img src="casa.jpg" alt="Casa"></div>
+                <div class="image" data-match="Árvore"><img src="arvore.jpg" alt="Árvore"></div>
+            </div>
+        </div>
+
+        <div class="reward-section">
+            <p id="feedback">Complete o exercício para ganhar estrelas!</p>
+            <div id="stars"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
