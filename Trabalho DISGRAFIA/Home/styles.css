@@ -131,31 +131,6 @@ body, html {
     text-decoration: underline;
 }
 
-.gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.gallery img {
-    margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-.small-image {
-    width: 300px;
-    height: auto; 
-}
-
-
 footer {
     background: #003366;
     color: #ffffff;
@@ -205,26 +180,21 @@ footer {
 }
 
 .infant-mode {
-    background-color: #975f0a;
+    background-color: #ffffff;
     font-family: 'Roboto', sans-serif;
 }
 
 .infant-mode .nav-bar {
-    background-color: #5796dd;
+    background-color: #08203b;
 }
 
 .infant-mode .nav-link {
-    color: #000000;
-    background-color: #007bff;
-}
-
-.infant-mode .hero {
-    background: linear-gradient(135deg, #007bff, #ffb6c1);
+    color: #ffffff;
+    background-color: #134b8c;
 }
 
 .infant-mode .button {
-    background-color: #ff69b4;
-    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
+    background-color: #000000;
 }
 
 .infant-mode footer {
@@ -250,12 +220,10 @@ footer {
     font-size: 1.2rem;
     font-weight: bold;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(19, 150, 202, 0.4);
     z-index: 1000;
 }
 
 #infant-mode-toggle:hover {
     background: #3f8fe4;
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(78, 101, 219, 0.6);
 }
