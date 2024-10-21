@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(circle,rgb(255, 255, 255), #084ba9);
+    background: radial-gradient(circle,#084ba9, #084ba9);
     color: #e0e0e0;
     font-family: 'Orbitron', sans-serif;
     margin: 0;
@@ -47,7 +47,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffffa3;
+    background-color: #061f53a3;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 0 15px#0dc6ff;
@@ -59,7 +59,7 @@ input[type="text"], textarea {
     padding: 10px;
     border-radius: 8px;
     border: none;
-    background-color: #ffffff9b;
+    background-color:#5b9fe89b;
     color: #ffffff;
     font-size: 1.1em;
     resize: none;
@@ -72,7 +72,7 @@ textarea {
 }
 
 input[type="text"]:focus, textarea:focus {
-    background-color: #dcdcdc;
+    background-color: #151e9f;
 }
 
 .rating {
@@ -94,7 +94,7 @@ input[type="text"]:focus, textarea:focus {
 }
 
 button {
-    background-color: #ffffff;
+    background-color: #3e8cd9;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -181,6 +181,6 @@ h2 {
 }
 
 .filter-button:hover {
-    background-color: #00ffcc;
+    background-color: #3794db;
     color: #ffffff;
 }
