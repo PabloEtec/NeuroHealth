@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirinto Futurista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0A0F29;
+            color: #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #00D4FF;
+            font-size: 2.5em;
+            text-shadow: 0 0 15px #00D4FF, 0 0 30px #ffffff;
+            margin-bottom: 20px; 
+        }
+        #maze-container {
+            width: 350px;
+            height: 500px;
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            position: relative;
+            background: linear-gradient(145deg, #111e40, #16224f);
+            box-shadow: 0 0 15px #ffffff, 0 0 30px #0ce0c8;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .maze-path {
+            position: absolute;
+            background-color: #1A73E8;
+            border-radius: 10px;
+            transition: transform 0.2s;
+            box-shadow: 0 0 8px #00FFE0, 0 0 15px #00D4FF;
+        }
+        .path-1 { top: 60px; left: 30px; width: 290px; height: 40px; }
+        .path-2 { top: 120px; left: 280px; width: 40px; height: 150px; }
+        .path-3 { top: 270px; left: 30px; width: 290px; height: 40px; }
+        .path-4 { top: 270px; left: 30px; width: 40px; height: 150px; }
+        .path-5 { top: 430px; left: 30px; width: 290px; height: 40px; }
+        .maze-goal {
+            width: 45px;
+            height: 45px;
+            background-color: #32FF7E;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffffff, 0 0 30px #32FF7E;
+            transition: transform 0.2s ease;
+        }
+        #start-button, #restart-button {
+            background-color: #1A73E8;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.2s;
+            box-shadow: 0 0 8px #1A73E8, 0 0 15px #1A73E8;
+        }
+        #start-button:hover, #restart-button:hover {
+            background-color: #ffffff;
+            color: #1A73E8;
+            box-shadow: 0 0 12px #ffffff, 0 0 25px #32FF7E;
+        }
+        .maze-goal:hover, .maze-path:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00FFE0, 0 0 30px #00D4FF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Labirinto Futurista</h1>
+    <div id="maze-container">
+        <div class="maze-path path-1"></div>
+        <div class="maze-path path-2"></div>
+        <div class="maze-path path-3"></div>
+        <div class="maze-path path-4"></div>
+        <div class="maze-path path-5"></div>
+        <div class="maze-goal" id="goal"></div>
+    </div>
+    <button id="start-button">Começar Labirinto</button>
+    <button id="restart-button" style="display: none;">Reiniciar Labirinto</button>
+
+    <script>
+        const startButton = document.getElementById('start-button');
+        const restartButton = document.getElementById('restart-button');
+        const mazeContainer = document.getElementById('maze-container');
+        const paths = document.querySelectorAll('.maze-path');
+        const goal = document.getElementById('goal');
+
+        let inMaze = false;
+
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none';
+            restartButton.style.display = 'block';
+            alert("Guie o cursor até o ponto verde sem tocar nas bordas!");
+            inMaze = true;
+        });
+
+        restartButton.addEventListener('click', () => {
+            startButton.style.display = 'block';
+            restartButton.style.display = 'none';
+            inMaze = false;
+        });
+
+        mazeContainer.addEventListener('mouseleave', () => {
+            if (inMaze) {
+                alert("Opa! Você saiu do caminho. Tente novamente.");
+                startButton.style.display = 'block';
+                restartButton.style.display = 'none';
+                inMaze = false;
+            }
+        });
+
+        paths.forEach(path => {
+            path.addEventListener('mouseleave', () => {
+                if (inMaze) {
+                    alert("Opa! Você tocou na borda. Tente novamente.");
+                    startButton.style.display = 'block';
+                    restartButton.style.display = 'none';
+                    inMaze = false;
+                }
+            });
+        });
+
+        goal.addEventListener('mouseenter', () => {
+            if (inMaze) {
+                alert("Parabéns! Você completou o labirinto!");
+                startButton.style.display = 'block';
+                restartButton.style.display = 'none';
+                inMaze = false;
+            }
+        });
+    </script>
+</body>
+</html>
