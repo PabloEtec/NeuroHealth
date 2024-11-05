@@ -1,46 +1,95 @@
+body {
+    background-color: #34c2f6;
+    color: hsl(197, 37%, 4%);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ 
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+ 
+h1 {
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+}
+ 
+.famoso {
+    border: 1px solid #00ccff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+ 
+h2 {
+    color: #1098e7;
+}
+ 
+p {
+    line-height: 1.6;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+ 
+.famoso {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+ 
+.famoso img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+ 
+.info h2 {
+    margin-top: 0;
+}
+ 
+.info p {
+    margin: 0;
+}
+
 .nav-bar {
-    position: fixed;
-    width: 100%;
-    background: #003366;
+    background: linear-gradient(90deg, #003366, #0056b3);
     color: #ffffff;
-    padding: 9px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: background 0.3s, box-shadow 0.3s;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-radius: 0px;
+    align-items: left;
 }
-
-.nav-bar.scrolled {
-    background: #001f3f;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
+ 
 .nav-links {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    align-items: left;
 }
-
+ 
 .nav-link {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 15px;
     border-radius: 5px;
     transition: background 0.3s, color 0.3s;
+    align-items: left;
 }
-
+ 
 .nav-link:hover {
-    background: #00aaff;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    align-items: left;
 }
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5; 
-    color: #333333;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+ 
