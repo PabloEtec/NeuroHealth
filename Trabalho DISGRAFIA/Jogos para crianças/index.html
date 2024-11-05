@@ -3,39 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jogos para Crianças</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Formas de Letras</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-bar {
+    background: linear-gradient(90deg, #003366, #0056b3);
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-radius: 0px;
+    align-items: left;
+}
+ 
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: left;
+}
+ 
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+    align-items: left;
+}
+ 
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    align-items: left;
+}
+ 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #ffffff;
+        }
+ 
+        .game-container {
+            background-color: #ffffff;
+            color: #333;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+ 
+        h1 {
+            font-size: 2rem;
+            color: #0072ff;
+            margin-bottom: 15px;
+        }
+ 
+        #canvas {
+            border: 4px solid #0072ff;
+            border-radius: 10px;
+            background-color: #f0f8ff;
+            margin-top: 20px;
+            cursor: crosshair;
+            transition: transform 0.3s ease-in-out;
+        }
+ 
+        #canvas:hover {
+            transform: scale(1.03);
+        }
+ 
+        .btn {
+            background-color: #0072ff;
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+            transition: background 0.3s, transform 0.2s;
+        }
+ 
+        .btn:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+        }
+ 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1> Jogos para Crianças</h1>
-        <p>Aprenda e se divirta com nossos jogos e atividades!</p>
-    </header>
-
-    <section class="activity-section">
-        <div class="activity">
-            <h2>Desafio de Caligrafia</h2>
-            <canvas id="caligrafia"></canvas>
-            <button id="clear-canvas">Limpar</button>
-        </div>
-
-        <div class="activity">
-            <h2>Jogo de Correspondência</h2>
-            <p>Arraste as palavras até a imagem correspondente!</p>
-            <div class="matching-game">
-                <div class="word">Casa</div>
-                <div class="word">Árvore</div>
-                <div class="image" data-match="Casa"><img src="casa.jpg" alt="Casa"></div>
-                <div class="image" data-match="Árvore"><img src="arvore.jpg" alt="Árvore"></div>
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="/Trabalho DISGRAFIA/Home/home.html" class="nav-link">Home</a>
             </div>
-        </div>
-
-        <div class="reward-section">
-            <p id="feedback">Complete o exercício para ganhar estrelas!</p>
-            <div id="stars"></div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+        </nav>
+    </header>
+    <div class="game-container">
+        <h1 id="instruction">Desenhe a Letra: A</h1>
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <button class="btn" onclick="clearCanvas()">Limpar</button>
+    </div>
+ 
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const instruction = document.getElementById('instruction');
+ 
+        let isDrawing = false;
+        let progress = 0;
+ 
+        const letters = ["A", "B", "C", "D", "E"];
+        const words = ["OLA", "CASA", "LIVRO"];
+        const phrases = ["EU GOSTO DE LER", "O SOL BRILHA"];
+ 
+        // Iniciar desenho
+        canvas.addEventListener('mousedown', () => { isDrawing = true; });
+        canvas.addEventListener('mouseup', () => {
+            isDrawing = false;
+            ctx.beginPath();
+            checkAnswer();
+        });
+        canvas.addEventListener('mousemove', draw);
+ 
+        function draw(e) {
+            if (!isDrawing) return;
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#0072ff';
+ 
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        }
+ 
+        // Função para limpar o canvas
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+ 
+        // Função para verificar resposta
+        function checkAnswer() {
+            // Simulando um reconhecimento. Aqui, se `progress` for par, é "correto"; ímpar, "incorreto".
+            const isCorrect = Math.random() > 0.5;  // Simulação de uma validação aleatória (substitua por validação real)
+ 
+            if (isCorrect) {
+                alert(`Parabéns! Você acertou: ${letters[progress]}`);
+                progress++;
+                nextStep();
+            } else {
+                alert("Tente novamente. Desenhe a letra corretamente.");
+                clearCanvas();
+            }
+        }
+ 
+        // Próxima letra, palavra ou frase
+        function nextStep() {
+            clearCanvas();
+            if (progress < letters.length) {
+                instruction.textContent = `Desenhe a Letra: ${letters[progress]}`;
+            } else if (progress < letters.length + words.length) {
+                const wordIndex = progress - letters.length;
+                instruction.textContent = `Escreva a Palavra: ${words[wordIndex]}`;
+            } else if (progress < letters.length + words.length + phrases.length) {
+                const phraseIndex = progress - letters.length - words.length;
+                instruction.textContent = `Forme a Frase: ${phrases[phraseIndex]}`;
+            } else {
+                instruction.textContent = "Parabéns! Você completou todas as etapas!";
+            }
+        }
+    </script>
 </body>
 </html>
+ 
+ 
