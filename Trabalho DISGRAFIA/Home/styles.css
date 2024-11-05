@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -7,7 +6,6 @@ body, html {
     background-color: #ffffff;
     color: #000000;
 }
-
 
 .nav-bar {
     position: fixed;
@@ -30,6 +28,30 @@ body, html {
     justify-content: space-around;
     align-items: center;
 }
+
+/* Estilos específicos para a tabela */
+.tabela table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+}
+
+.tabela td {
+    padding: 10px;
+    border: 0px;
+    text-align: center;
+}
+
+.tabela .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tabela .nav-link:hover {
+    color: #ffffff;
+}
+/* Acaba a tabela */
 
 .nav-link {
     color: #ffffff;
