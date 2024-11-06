@@ -4,42 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labirinto Futurista</title>
+    <link rel="icon" type="IMAGEM.png" href="../image.png">
     <style>
+        /* Navbar */
+        .nav-bar {
+            background: linear-gradient(90deg, #003366, #0056b3);
+            color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            align-items: left;
+        }
 
-.nav-bar {
-    background: linear-gradient(90deg, #003366, #0056b3);
-    color: #ffffff;
-    padding: 15px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    border-radius: 0px;
-    align-items: left;
-}
- 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    align-items: left;
-}
- 
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
-    align-items: left;
-}
- 
-.nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #e0e0e0;
-    align-items: left;
-}
- 
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            align-items: left;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            align-items: left;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e0e0e0;
+            align-items: left;
+        }
+
+        /* Corpo e título */
         body {
             font-family: Arial, sans-serif;
             background-color: #0A0F29;
@@ -52,16 +53,20 @@
             padding: 0;
             min-height: 100vh;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
         h1 {
             color: #00D4FF;
             font-size: 2.5em;
             text-shadow: 0 0 15px #00D4FF, 0 0 30px #ffffff;
             margin-bottom: 20px; 
         }
+
+        /* Labirinto e caminhos */
         #maze-container {
             width: 350px;
             height: 500px;
@@ -73,18 +78,21 @@
             overflow: hidden;
             margin-bottom: 20px;
         }
+
         .maze-path {
             position: absolute;
             background-color: #1A73E8;
             border-radius: 10px;
-            transition: transform 0.2s;
             box-shadow: 0 0 8px #00FFE0, 0 0 15px #00D4FF;
         }
+
         .path-1 { top: 60px; left: 30px; width: 290px; height: 40px; }
         .path-2 { top: 120px; left: 280px; width: 40px; height: 150px; }
         .path-3 { top: 270px; left: 30px; width: 290px; height: 40px; }
         .path-4 { top: 270px; left: 30px; width: 40px; height: 150px; }
         .path-5 { top: 430px; left: 30px; width: 290px; height: 40px; }
+
+        /* Objetivo final */
         .maze-goal {
             width: 45px;
             height: 45px;
@@ -94,8 +102,21 @@
             right: 15px;
             border-radius: 50%;
             box-shadow: 0 0 15px #ffffff, 0 0 30px #32FF7E;
-            transition: transform 0.2s ease;
         }
+
+        /* Bolinha do jogador */
+        .player {
+            width: 20px;
+            height: 20px;
+            background-color: #32FF7E;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #32FF7E, 0 0 20px #32FF7E;
+        }
+
+        /* Botões */
         #start-button, #restart-button {
             background-color: #1A73E8;
             border: none;
@@ -107,14 +128,11 @@
             transition: all 0.2s;
             box-shadow: 0 0 8px #1A73E8, 0 0 15px #1A73E8;
         }
+
         #start-button:hover, #restart-button:hover {
             background-color: #ffffff;
             color: #1A73E8;
             box-shadow: 0 0 12px #ffffff, 0 0 25px #32FF7E;
-        }
-        .maze-goal:hover, .maze-path:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px #00FFE0, 0 0 30px #00D4FF;
         }
     </style>
 </head>
@@ -134,6 +152,7 @@
         <div class="maze-path path-4"></div>
         <div class="maze-path path-5"></div>
         <div class="maze-goal" id="goal"></div>
+        <div class="player" id="player"></div>
     </div>
     <button id="start-button">Começar Labirinto</button>
     <button id="restart-button" style="display: none;">Reiniciar Labirinto</button>
@@ -144,14 +163,21 @@
         const mazeContainer = document.getElementById('maze-container');
         const paths = document.querySelectorAll('.maze-path');
         const goal = document.getElementById('goal');
+        const player = document.getElementById('player');
 
         let inMaze = false;
+        let playerX = 20;
+        let playerY = 20;
+        const moveSpeed = 5;
 
         startButton.addEventListener('click', () => {
             startButton.style.display = 'none';
             restartButton.style.display = 'block';
-            alert("Guie o cursor até o ponto verde sem tocar nas bordas!");
+            alert("Use as setas para mover a bolinha verde até o ponto final sem tocar nas bordas!");
             inMaze = true;
+            playerX = 20;  // Reset position
+            playerY = 20;
+            updatePlayerPosition();
         });
 
         restartButton.addEventListener('click', () => {
@@ -160,33 +186,66 @@
             inMaze = false;
         });
 
-        mazeContainer.addEventListener('mouseleave', () => {
-            if (inMaze) {
-                alert("Opa! Você saiu do caminho. Tente novamente.");
-                startButton.style.display = 'block';
-                restartButton.style.display = 'none';
-                inMaze = false;
-            }
-        });
+        function updatePlayerPosition() {
+            player.style.left = playerX + 'px';
+            player.style.top = playerY + 'px';
+        }
 
-        paths.forEach(path => {
-            path.addEventListener('mouseleave', () => {
-                if (inMaze) {
+        function checkCollision() {
+            const playerRect = player.getBoundingClientRect();
+            for (let path of paths) {
+                const pathRect = path.getBoundingClientRect();
+                if (
+                    playerRect.left < pathRect.right &&
+                    playerRect.right > pathRect.left &&
+                    playerRect.top < pathRect.bottom &&
+                    playerRect.bottom > pathRect.top
+                ) {
                     alert("Opa! Você tocou na borda. Tente novamente.");
-                    startButton.style.display = 'block';
-                    restartButton.style.display = 'none';
-                    inMaze = false;
+                    resetGame();
+                    return;
                 }
-            });
-        });
-
-        goal.addEventListener('mouseenter', () => {
-            if (inMaze) {
-                alert("Parabéns! Você completou o labirinto!");
-                startButton.style.display = 'block';
-                restartButton.style.display = 'none';
-                inMaze = false;
             }
+
+            const goalRect = goal.getBoundingClientRect();
+            if (
+                playerRect.left < goalRect.right &&
+                playerRect.right > goalRect.left &&
+                playerRect.top < goalRect.bottom &&
+                playerRect.bottom > goalRect.top
+            ) {
+                alert("Parabéns! Você completou o labirinto!");
+                resetGame();
+            }
+        }
+
+        function resetGame() {
+            startButton.style.display = 'block';
+            restartButton.style.display = 'none';
+            inMaze = false;
+            playerX = 20;
+            playerY = 20;
+            updatePlayerPosition();
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (!inMaze) return;
+            switch (event.key) {
+                case 'ArrowUp':
+                    if (playerY - moveSpeed >= 0) playerY -= moveSpeed;
+                    break;
+                case 'ArrowDown':
+                    if (playerY + moveSpeed + player.offsetHeight <= mazeContainer.offsetHeight) playerY += moveSpeed;
+                    break;
+                case 'ArrowLeft':
+                    if (playerX - moveSpeed >= 0) playerX -= moveSpeed;
+                    break;
+                case 'ArrowRight':
+                    if (playerX + moveSpeed + player.offsetWidth <= mazeContainer.offsetWidth) playerX += moveSpeed;
+                    break;
+            }
+            updatePlayerPosition();
+            checkCollision();
         });
     </script>
 </body>
