@@ -92,10 +92,12 @@ body {
             display: flex;
             flex-direction: column; /* Direção do conteúdo para baixo */
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+            
            
 }
 p {
     margin-bottom: 60px; /* Espaço entre os parágrafos */
+    font-size: 20px;
 }
 
 footer {
