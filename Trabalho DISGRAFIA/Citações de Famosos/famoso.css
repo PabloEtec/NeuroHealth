@@ -92,4 +92,16 @@ p {
     color: #e0e0e0;
     align-items: left;
 }
- 
+
+img {
+    border-radius: 10px;
+}
+
+.logo{
+    border-radius: 10px;
+    position: fixed; /* Permite mover a imagem livremente */
+    top: 0; /* Posiciona a imagem no topo */
+    left: 0; /* Posiciona a imagem à esquerda */
+    width: 20px;  /* Ajuste o tamanho conforme necessário */
+    height: 15px;  /* Mantém a proporção da imagem */ 
+}
