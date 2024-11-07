@@ -122,3 +122,15 @@ body {
     height: 1000;
     width: 50%;
   }
+
+p {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+strong {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
