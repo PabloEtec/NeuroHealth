@@ -95,5 +95,9 @@ body {
            
 }
 p {
-    margin-bottom: 60px; /* Espaço entre os parágrafos */
+    margin-bottom: 60px;
+    font-size: 25px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555555;
 }

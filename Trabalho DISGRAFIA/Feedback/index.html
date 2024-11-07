@@ -3,25 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback </title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="style.css">
-    <link href="/Trabalho DISGRAFIA/Feedback/style.css" rel="stylesheet">
-    <link rel="icon" type="IMAGEM.png" href="../image.png">
-
- 
-
- 
+    <link href="../Feedback/style.css" rel="stylesheet">
+    <link rel="icon" type="image.png" href="image.png">
 </head>
 <body>
     <header>
-        
-            <nav class="nav-bar">
-                <div class="nav-links">
-                    <a href="../Home/home.html" class="nav-link">Home</a>
-                </div>
-            </nav>
-        
-        <h1>Feedback</h1>
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="../Home/home.html" class="nav-link" id="nav-home">Home</a>
+            </div>
+        </nav>
+        <h1 id="page-title">Feedback</h1>
     </header>
 
     <main>
@@ -42,19 +36,59 @@
         </section>
 
         <section class="filter-options">
-            <button class="filter-button" data-rating="all">Todos</button>
-            <button class="filter-button" data-rating="5">5 Estrelas</button>
-            <button class="filter-button" data-rating="4">4 Estrelas</button>
-            <button class="filter-button" data-rating="3">3 Estrelas</button>
-            <button class="filter-button" data-rating="2">2 Estrelas</button>
-            <button class="filter-button" data-rating="1">1 Estrela</button>
+            <button class="filter-button" data-rating="all" id="filter-all">Todos</button>
+            <button class="filter-button" data-rating="5" id="filter-5">5 Estrelas</button>
+            <button class="filter-button" data-rating="4" id="filter-4">4 Estrelas</button>
+            <button class="filter-button" data-rating="3" id="filter-3">3 Estrelas</button>
+            <button class="filter-button" data-rating="2" id="filter-2">2 Estrelas</button>
+            <button class="filter-button" data-rating="1" id="filter-1">1 Estrela</button>
         </section>
 
         <section class="feedback-display">
-            <h2>Feedbacks Recentes</h2>
+            <h2 id="recent-feedback">Feedbacks Recentes</h2>
             <div id="feedbackContainer" class="feedback-container"></div>
         </section>
     </main>
+
+    <!-- Botão de tradução fixo -->
+    <button id="language-toggle" class="button" onclick="toggleLanguage()">Switch to English</button>
+
+    <script>
+        // Função para alternar entre os idiomas
+        function toggleLanguage() {
+            const isEnglish = document.body.classList.contains('english');
+
+            if (isEnglish) {
+                // Mudar para português
+                document.body.classList.remove('english');
+
+                document.getElementById('page-title').textContent = 'Feedback';
+                document.getElementById('filter-all').textContent = 'Todos';
+                document.getElementById('filter-5').textContent = '5 Estrelas';
+                document.getElementById('filter-4').textContent = '4 Estrelas';
+                document.getElementById('filter-3').textContent = '3 Estrelas';
+                document.getElementById('filter-2').textContent = '2 Estrelas';
+                document.getElementById('filter-1').textContent = '1 Estrela';
+                document.getElementById('sendFeedback').textContent = 'Enviar';
+                document.getElementById('recent-feedback').textContent = 'Feedbacks Recentes';
+                document.getElementById('language-toggle').textContent = 'Switch to English';
+            } else {
+                // Mudar para inglês
+                document.body.classList.add('english');
+
+                document.getElementById('page-title').textContent = 'Feedback';
+                document.getElementById('filter-all').textContent = 'All';
+                document.getElementById('filter-5').textContent = '5 Stars';
+                document.getElementById('filter-4').textContent = '4 Stars';
+                document.getElementById('filter-3').textContent = '3 Stars';
+                document.getElementById('filter-2').textContent = '2 Stars';
+                document.getElementById('filter-1').textContent = '1 Star';
+                document.getElementById('sendFeedback').textContent = 'Send';
+                document.getElementById('recent-feedback').textContent = 'Recent Feedbacks';
+                document.getElementById('language-toggle').textContent = 'Mudar para Português';
+            }
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
