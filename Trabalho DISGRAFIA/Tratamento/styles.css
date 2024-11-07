@@ -105,13 +105,24 @@ body {
   }
   
   footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 13px 0;
     position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    bottom: 1;
-    margin: 0 13px;
-  }
-  
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+strong {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

@@ -201,51 +201,16 @@ footer {
     100% { background-position: 0% 0%; }
 }
 
-.infant-mode {
-    background-color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-}
-
-.infant-mode .nav-bar {
-    background-color: #08203b;
-}
-
-.infant-mode .nav-link {
-    color: #ffffff;
-    background-color: #134b8c;
-}
-
-.infant-mode .button {
-    background-color: #000000;
-}
-
-.infant-mode footer {
-    background-color: #007bff;
-}
-
-.infant-mode h1, .infant-mode h2, .infant-mode p {
-    color: #000000;
-}
-
-.infant-mode .social-icon {
-    color: #000000;
-}
-
-#infant-mode-toggle {
+#language-toggle {
     position: fixed;
-    left: 20px;
-    bottom: 20px;
-    background: #007bff;
-    color: #ffffff;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    z-index: 1000;
-}
-
-#infant-mode-toggle:hover {
-    background: #3f8fe4;
-    transform: scale(1.05);
+    bottom: 20px;  
+    right: 20px;    
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;  
 }
