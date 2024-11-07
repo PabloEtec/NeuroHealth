@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeuroHealth</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="IMAGEM.png" href="../image.png">
+    <link rel="icon" type="IMAGEM.png" href="image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -13,71 +13,120 @@
         <nav class="nav-bar">
             <div class="nav-links">
                 <!--<img src="NeuroHealthHorizontal.png" class="nav-link" height="100" >-->
-                <a href="../Página TEXTO/index.html" class="nav-link">Disgrafia</a>
-                <a href="../Página Biografia/index.html" class="nav-link">Sobre Nós</a>
-                <a href="../Feedback/index.html" class="nav-link">Feedback</a>
-                <a href="../Login/Index.html" class="nav-link">Login</a>
+                <a href="../Página TEXTO/index.html" class="nav-link" id="nav-dysgraphia">Disgrafia</a>
+                <a href="../Página Biografia/index.html" class="nav-link" id="nav-about">Sobre Nós</a>
+                <a href="../Feedback/index.html" class="nav-link" id="nav-feedback">Feedback</a>
+                <a href="../Login/Index.html" class="nav-link" id="nav-login">Login</a>
             </div>
             <div class="profile-container">
                 <div id="profile-info" class="profile-info" style="display: none;">
-                    <span class="username">Bem-vindo, Usuário</span>
+                    <span class="username" id="welcome-text">Bem-vindo, Usuário</span>
                     <div class="profile-pic" onclick="toggleProfileMenu()">
                         <img src="https://source.unsplash.com/40x40/?portrait" alt="Foto de Perfil">
                     </div>
                     <div id="profile-menu" class="profile-menu">
-                        <a href="#">Meu Perfil</a>
-                        <a href="#">Configurações</a>
-                        <a href="#">Sair</a>
+                        <a href="#" id="profile-link">Meu Perfil</a>
+                        <a href="#" id="settings-link">Configurações</a>
+                        <a href="#" id="logout-link">Sair</a>
                     </div>
                 </div>
-           
-                <button id="infant-mode-toggle" class="button" onclick="toggleInfantMode()">Modo Escuro</button> 
             </div>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>NeuroHealth</h1>
-            <p>POR UM MUNDO MELHOR.</p>
-            <a href="#resources" class="button">Confira Mais Opções!</a>
+            <h1 id="hero-title">NeuroHealth</h1>
+            <p id="hero-subtitle">POR UM MUNDO MELHOR.</p>
+            <a href="#resources" class="button" id="more-options-button">Confira Mais Opções!</a>
         </div>
     </section>
 
     <section class="section" id="resources">
-        <h2>Mais Opções</h2>
+        <h2 id="resources-title">Mais Opções</h2>
     </section>
     
     <section class="tabela">
         <table>
             <tr>
-                <td><a href="../IA disgrafia/index.html" class="nav-link">Dúvidas</a></td>
-                <td><a href="../Tratamento/index.html" class="nav-link">Tratamento</a></td>
-                <td><a href="../Dicas para Pais/dicas.html" class="nav-link">Dicas para Pais</a></td>
-                <td><a href="../Legislação/index.html" class="nav-link">Legislação</a></td>
-                <td><a href="../Citações de Famosos/index.html" class="nav-link">Famosos com Disgrafia</a></td>
-                <td><a href="../Jogos para crianças/index.html" class="nav-link">Jogos para Crianças</a></td>
-                <td><a href="../Labirinto/index.html" class="nav-link">Labirinto</a></td>
-                
-                
+                <td><a href="../IA disgrafia/index.html" class="nav-link" id="doubts-link">Dúvidas</a></td>
+                <td><a href="../Tratamento/index.html" class="nav-link" id="treatment-link">Tratamento</a></td>
+                <td><a href="../Dicas para Pais/dicas.html" class="nav-link" id="treatment-link">Dicas para Pais</a></td>
+                <td><a href="../Legislação/index.html" class="nav-link" id="treatment-link">Legislação</a></td>
+                <td><a href="../Citações de Famosos/index.html" class="nav-link" id="famous-dysgraphia">Famosos com Disgrafia</a></td>
+                <td><a href="../Jogos para crianças/index.html" class="nav-link" id="games-link">Escrita Digital</a></td>
+                <td><a href="../Labirinto/index.html" class="nav-link" id="treatment-link">Labirinto</a></td>
             </tr>
         </table>
     </section>
     
     <footer id="contact">
         <div class="footer-content" style="color: white;">
-            <p>Entre em contato:</p>
+            <p id="contact-text">Entre em contato:</p>
             <p>Email: <a href="mailto:ALGUMACOISA@neurohealth.com" style="color: white;">contato@neurohealth.com</a></p>
             <p>Telefone: <a href="tel:+3123232321231241" style="color: white;">(11) 91231231</a></p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-               
                 <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
+    <!-- Botão de tradução -->
+    <button id="language-toggle" class="button" onclick="toggleLanguage()">Switch to English</button>
+
     <script>
+        // Função para alternar entre os idiomas
+        function toggleLanguage() {
+            const isEnglish = document.body.classList.contains('english');
+
+            if (isEnglish) {
+                // Mudar para português
+                document.body.classList.remove('english');
+
+                document.getElementById('hero-title').textContent = 'NeuroHealth';
+                document.getElementById('hero-subtitle').textContent = 'POR UM MUNDO MELHOR.';
+                document.getElementById('more-options-button').textContent = 'Confira Mais Opções!';
+                document.getElementById('resources-title').textContent = 'Mais Opções';
+                document.getElementById('nav-dysgraphia').textContent = 'Disgrafia';
+                document.getElementById('nav-about').textContent = 'Sobre Nós';
+                document.getElementById('nav-feedback').textContent = 'Feedback';
+                document.getElementById('nav-login').textContent = 'Login';
+                document.getElementById('welcome-text').textContent = 'Bem-vindo, Usuário';
+                document.getElementById('profile-link').textContent = 'Meu Perfil';
+                document.getElementById('settings-link').textContent = 'Configurações';
+                document.getElementById('logout-link').textContent = 'Sair';
+                document.getElementById('famous-dysgraphia').textContent = 'Famosos com Disgrafia';
+                document.getElementById('doubts-link').textContent = 'Dúvidas';
+                document.getElementById('games-link').textContent = 'Jogos para Crianças';
+                document.getElementById('treatment-link').textContent = 'Tratamento';
+                document.getElementById('contact-text').textContent = 'Entre em contato:';
+                document.getElementById('language-toggle').textContent = 'Switch to English';
+            } else {
+                // Mudar para inglês
+                document.body.classList.add('english');
+
+                document.getElementById('hero-title').textContent = 'NeuroHealth';
+                document.getElementById('hero-subtitle').textContent = 'FOR A BETTER WORLD.';
+                document.getElementById('more-options-button').textContent = 'Check More Options!';
+                document.getElementById('resources-title').textContent = 'More Options';
+                document.getElementById('nav-dysgraphia').textContent = 'Dysgraphia';
+                document.getElementById('nav-about').textContent = 'About Us';
+                document.getElementById('nav-feedback').textContent = 'Feedback';
+                document.getElementById('nav-login').textContent = 'Login';
+                document.getElementById('welcome-text').textContent = 'Welcome, User';
+                document.getElementById('profile-link').textContent = 'My Profile';
+                document.getElementById('settings-link').textContent = 'Settings';
+                document.getElementById('logout-link').textContent = 'Logout';
+                document.getElementById('famous-dysgraphia').textContent = 'Famous People with Dysgraphia';
+                document.getElementById('doubts-link').textContent = 'Doubts';
+                document.getElementById('games-link').textContent = 'Games for Kids';
+                document.getElementById('treatment-link').textContent = 'Treatment';
+                document.getElementById('contact-text').textContent = 'Contact Us:';
+                document.getElementById('language-toggle').textContent = 'Mudar para Português';
+            }
+        }
+
         function toggleInfantMode() {
             document.body.classList.toggle('infant-mode');
         }
