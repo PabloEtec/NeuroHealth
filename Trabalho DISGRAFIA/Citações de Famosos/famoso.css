@@ -105,3 +105,8 @@ img {
     width: 20px;  /* Ajuste o tamanho conforme necessário */
     height: 15px;  /* Mantém a proporção da imagem */ 
 }
+
+img.google{
+    width: 0px;
+    height: 0px;
+}
