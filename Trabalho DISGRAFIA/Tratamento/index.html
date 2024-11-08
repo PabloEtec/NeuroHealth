@@ -1,36 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tratamento de Disgrafia</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="IMAGEM.png" href="../image.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento</title>
+    <link rel="icon" type="IMAGEM.png" href="../image.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Botão de tradução */
+        .language-btn {
+            margin-top: 20px;
+            padding: 8px 15px;  /* Ajuste para botão menor */
+            font-size: 1rem;  /* Ajuste no tamanho da fonte */
+            cursor: pointer;
+            background-color: #0056b3;  /* Cor azul que combina com o restante do site */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+ 
+        /* Efeito de hover no botão */
+        .language-btn:hover {
+            background-color: #004299;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="../Home/home.html" class="nav-link">Home</a>
+            </div>
+        </nav>
+    </header>
+    <div id="google_translate_element"><p>Traduzir</p></div>
 
-  <header>
-    <nav class="nav-bar">
-        <div class="nav-links">
-            <a href="../Home/home.html" class="nav-link">Home</a>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt-br'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+    /* Estilo para posicionar o tradutor no canto inferior esquerdo */
+    #google_translate_element {
+      position: fixed;  /* Fixa o elemento na tela */
+      bottom: 0;        /* Posiciona no fundo */
+      left: 0;          /* Posiciona no lado esquerdo */
+      margin-left: 10px;     /* Adiciona uma margem para não colar nas bordas */
+      z-index: 9999;    /* Garante que o widget fique acima de outros conteúdos */
+      background-color: darkgray;
+      border-radius: 10px;
+    }
+  </style>
+    <h1 id="title">Tratamentos para Disgrafia</h1>
+    <div id="chat-box">
+        <h2 id="question-title">Veja as opções.</h2>
+ 
+        <!-- Perguntas e Respostas -->
+        <button class="accordion" id="q1">Terapia Ocupacional</button>
+        <div class="panel" id="a1">
+            <p>A terapia ocupacional é uma das abordagens mais eficazes para tratar a disgrafia. Profissionais especializados ajudam o paciente a desenvolver as habilidades motoras necessárias para a escrita, como a coordenação olho-mão, o controle da caneta e o fortalecimento dos músculos das mãos e dedos. Exercícios de destreza manual, como desenhar formas e escrever repetidamente, podem ser usados para melhorar a caligrafia.</p>
         </div>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="treatment">
-      <h2>ㅤ</h2>
-      <h2>Tratamento e Acompanhamento</h2>
-      <img src="../Tratamento/image.png">
-      <p>O tratamento da disgrafia geralmente envolve intervenções com psicopedagogos, fonoaudiólogos e terapeutas ocupacionais. O objetivo é ajudar o indivíduo a desenvolver habilidades de escrita por meio de técnicas específicas, como:</p>
-      <ul>
-        <li><strong>Terapia Ocupacional:</strong> Exercícios para melhorar a coordenação motora fina.</li>
-        <li><strong>Fonoaudiologia:</strong> Melhoria da articulação e fluência verbal.</li>
-        <li><strong>Treinamento psicopedagógico:</strong> Técnicas de ensino diferenciadas para facilitar a escrita.</li>
-      </ul>
-      <p>Com um acompanhamento contínuo, é possível melhorar a legibilidade da escrita e a autoconfiança da pessoa.</p>
-    </section>
-
+ 
+        <button class="accordion" id="q2">Tecnoligia Assistiva</button>
+        <div class="panel" id="a2">
+            <p>O uso de tecnologia assistiva tem sido uma grande aliada no tratamento da disgrafia. Ferramentas como softwares de reconhecimento de escrita, aplicativos de digitação e dispositivos que transformam texto falado em texto escrito podem facilitar a comunicação escrita e reduzir a frustração dos indivíduos com disgrafia.</p>
+        </div>
+ 
+        <button class="accordion" id="q3">Adaptações Educacionais</button>
+        <div class="panel" id="a3">
+            <p>Nas escolas, adaptações educacionais são essenciais para ajudar os alunos com disgrafia a se destacarem. Isso pode incluir o uso de computadores para digitação em vez de escrita manual, tempo adicional para completar tarefas de escrita, e a utilização de materiais didáticos que permitam o aprendizado de maneira mais visual e interativa.</p>
+        </div>
+ 
+        <button class="accordion" id="q4">Apoio Psicológico e Educacional</button>
+        <div class="panel" id="a4">
+            <p>O apoio psicológico é fundamental para ajudar os indivíduos com disgrafia a lidarem com os desafios emocionais e a baixa autoestima frequentemente associados à dificuldade de escrita. Além disso, o acompanhamento educacional, com métodos especializados de ensino, pode facilitar a adaptação ao ambiente escolar.</p>
+        </div>
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 </html>

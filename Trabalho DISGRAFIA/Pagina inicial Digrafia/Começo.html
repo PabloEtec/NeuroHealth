@@ -12,9 +12,29 @@
    
 </head>
 <body>
-    <style>
-        
-    </style>
+    <div id="google_translate_element"><p>Traduzir</p></div>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt-br'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+    /* Estilo para posicionar o tradutor no canto inferior esquerdo */
+    #google_translate_element {
+      position: fixed;  /* Fixa o elemento na tela */
+      bottom: 0;        /* Posiciona no fundo */
+      left: 0;          /* Posiciona no lado esquerdo */
+      margin-left: 10px;     /* Adiciona uma margem para não colar nas bordas */
+      z-index: 9999;    /* Garante que o widget fique acima de outros conteúdos */
+      background-color: darkgray;
+      border-radius: 10px;
+    }
+  </style>
+
     
     
     <div class="container">

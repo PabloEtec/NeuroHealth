@@ -9,6 +9,29 @@
     <link rel="icon" type="image.png" href="image.png">
 </head>
 <body>
+    <div id="google_translate_element"><p>Traduzir</p></div>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt-br'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+    /* Estilo para posicionar o tradutor no canto inferior esquerdo */
+    #google_translate_element {
+      position: fixed;  /* Fixa o elemento na tela */
+      bottom: 0;        /* Posiciona no fundo */
+      left: 0;          /* Posiciona no lado esquerdo */
+      margin-left: 10px;     /* Adiciona uma margem para não colar nas bordas */
+      z-index: 9999;    /* Garante que o widget fique acima de outros conteúdos */
+      background-color: darkgray;
+      border-radius: 10px;
+    }
+  </style>
+
     <header>
         <nav class="nav-bar">
             <div class="nav-links">
@@ -49,47 +72,5 @@
             <div id="feedbackContainer" class="feedback-container"></div>
         </section>
     </main>
-
-    <!-- Botão de tradução fixo -->
-    <button id="language-toggle" class="button" onclick="toggleLanguage()">Switch to English</button>
-
-    <script>
-        // Função para alternar entre os idiomas
-        function toggleLanguage() {
-            const isEnglish = document.body.classList.contains('english');
-
-            if (isEnglish) {
-                // Mudar para português
-                document.body.classList.remove('english');
-
-                document.getElementById('page-title').textContent = 'Feedback';
-                document.getElementById('filter-all').textContent = 'Todos';
-                document.getElementById('filter-5').textContent = '5 Estrelas';
-                document.getElementById('filter-4').textContent = '4 Estrelas';
-                document.getElementById('filter-3').textContent = '3 Estrelas';
-                document.getElementById('filter-2').textContent = '2 Estrelas';
-                document.getElementById('filter-1').textContent = '1 Estrela';
-                document.getElementById('sendFeedback').textContent = 'Enviar';
-                document.getElementById('recent-feedback').textContent = 'Feedbacks Recentes';
-                document.getElementById('language-toggle').textContent = 'Switch to English';
-            } else {
-                // Mudar para inglês
-                document.body.classList.add('english');
-
-                document.getElementById('page-title').textContent = 'Feedback';
-                document.getElementById('filter-all').textContent = 'All';
-                document.getElementById('filter-5').textContent = '5 Stars';
-                document.getElementById('filter-4').textContent = '4 Stars';
-                document.getElementById('filter-3').textContent = '3 Stars';
-                document.getElementById('filter-2').textContent = '2 Stars';
-                document.getElementById('filter-1').textContent = '1 Star';
-                document.getElementById('sendFeedback').textContent = 'Send';
-                document.getElementById('recent-feedback').textContent = 'Recent Feedbacks';
-                document.getElementById('language-toggle').textContent = 'Mudar para Português';
-            }
-        }
-    </script>
-
-    <script src="script.js"></script>
 </body>
 </html>
