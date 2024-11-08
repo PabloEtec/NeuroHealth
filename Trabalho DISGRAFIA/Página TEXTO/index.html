@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disgrafia</title>
-    <link rel="icon" type="IMAGEM.png" href="../image.png">
+    <link rel="icon" type="image/png" href="../image.png">
     <link rel="stylesheet" href="PáginaTexto.css">
 </head>
 <body>
@@ -14,22 +14,52 @@
                 <a href="../Tratamento/index.html" class="nav-link">Tratamento</a>
             </div>
         </nav>
+    </header>
     <div class="container">
-        <img src="../Página TEXTO/O que é disgrafia.png">
-        <h1>O que é Disgrafia?</h1>
-        <p>
+        <h1 id="titulo">O que é Disgrafia?</h1>
+        <p id="paragrafo1">
             A <strong>Disgrafia</strong> é um transtorno de aprendizagem caracterizado pela dificuldade na escrita, afetando a forma e a legibilidade das letras e palavras. Indivíduos com disgrafia podem apresentar uma caligrafia irregular, espaçamento inconsistente, erros ortográficos frequentes e lentidão na escrita, o que pode interferir no desempenho escolar e na comunicação escrita em geral.
         </p>
-        <p>
+        <p id="paragrafo2">
             Este transtorno não está relacionado à inteligência ou ao esforço do indivíduo. É uma condição neurológica que afeta a habilidade motora fina necessária para a escrita. A identificação precoce e o suporte adequado são essenciais para ajudar aqueles com disgrafia a desenvolver estratégias compensatórias e alcançar seu pleno potencial acadêmico e profissional.
         </p>
-        <p>
+        <p id="paragrafo3">
             Recursos como terapia ocupacional, uso de tecnologia assistiva (como computadores ou tablets para digitação) e adaptações educacionais podem ser extremamente benéficos. A compreensão e o apoio de educadores, familiares e profissionais de saúde são fundamentais para o sucesso no manejo da disgrafia.
         </p>
         <button class="custom-button" onclick="window.location.href='../Home/home.html'">Voltar para a Página Inicial</button>
+        <button class="custom-button" onclick="traduzirConteudo()">Switch to english</button>
     </div>
     <footer>
         &copy; 2024 Informações sobre Disgrafia
     </footer>
+
+    <script>
+        // Textos em português e inglês
+        const textosPortugues = {
+            titulo: "O que é Disgrafia?",
+            paragrafo1: "A <strong>Disgrafia</strong> é um transtorno de aprendizagem caracterizado pela dificuldade na escrita, afetando a forma e a legibilidade das letras e palavras. Indivíduos com disgrafia podem apresentar uma caligrafia irregular, espaçamento inconsistente, erros ortográficos frequentes e lentidão na escrita, o que pode interferir no desempenho escolar e na comunicação escrita em geral.",
+            paragrafo2: "Este transtorno não está relacionado à inteligência ou ao esforço do indivíduo. É uma condição neurológica que afeta a habilidade motora fina necessária para a escrita. A identificação precoce e o suporte adequado são essenciais para ajudar aqueles com disgrafia a desenvolver estratégias compensatórias e alcançar seu pleno potencial acadêmico e profissional.",
+            paragrafo3: "Recursos como terapia ocupacional, uso de tecnologia assistiva (como computadores ou tablets para digitação) e adaptações educacionais podem ser extremamente benéficos. A compreensão e o apoio de educadores, familiares e profissionais de saúde são fundamentais para o sucesso no manejo da disgrafia."
+        };
+
+        const textosIngles = {
+            titulo: "What is Dysgraphia?",
+            paragrafo1: "<strong>Dysgraphia</strong> is a learning disorder characterized by difficulties in writing, affecting the shape and legibility of letters and words. Individuals with dysgraphia may have irregular handwriting, inconsistent spacing, frequent spelling errors, and slow writing, which can interfere with school performance and written communication in general.",
+            paragrafo2: "This disorder is not related to intelligence or individual effort. It is a neurological condition that affects the fine motor skills needed for writing. Early identification and proper support are essential to help those with dysgraphia develop compensatory strategies and reach their full academic and professional potential.",
+            paragrafo3: "Resources like occupational therapy, assistive technology (such as computers or tablets for typing), and educational adaptations can be extremely beneficial. The understanding and support of educators, family members, and healthcare professionals are crucial to successful dysgraphia management."
+        };
+
+        let emPortugues = true;
+
+        // Função de tradução
+        function traduzirConteudo() {
+            const textos = emPortugues ? textosIngles : textosPortugues;
+            document.getElementById("titulo").innerHTML = textos.titulo;
+            document.getElementById("paragrafo1").innerHTML = textos.paragrafo1;
+            document.getElementById("paragrafo2").innerHTML = textos.paragrafo2;
+            document.getElementById("paragrafo3").innerHTML = textos.paragrafo3;
+            emPortugues = !emPortugues;
+        }
+    </script>
 </body>
 </html>
