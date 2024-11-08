@@ -15,6 +15,28 @@
             </div>
         </nav>
     </header>
+    <div id="google_translate_element"><p>Traduzir</p></div>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt-br'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+    /* Estilo para posicionar o tradutor no canto inferior esquerdo */
+    #google_translate_element {
+      position: fixed;  /* Fixa o elemento na tela */
+      bottom: 0;        /* Posiciona no fundo */
+      left: 0;          /* Posiciona no lado esquerdo */
+      margin-left: 10px;     /* Adiciona uma margem para não colar nas bordas */
+      z-index: 9999;    /* Garante que o widget fique acima de outros conteúdos */
+      background-color: darkgray;
+      border-radius: 10px;
+    }
+  </style>
     <div class="retangulo">
         <h1>Legislações</h1>
         <div class="leiimg"><img src="../Legislação/Legislação.png"></div>
@@ -28,7 +50,5 @@
        
         <p>“No âmbito do programa estabelecido no art. 1º desta Lei, os sistemas de ensino devem garantir aos professores da educação básica amplo acesso à informação, inclusive quanto aos encaminhamentos possíveis para atendimento multissetorial, e formação continuada para capacitá-los à identificação precoce dos sinais relacionados aos transtornos de aprendizagem ou ao TDAH, bem como para o atendimento educacional escolar dos educandos.” (BRASIL, 2021, art. 5)</p>
     </div>
-</body>
-</html>
 </body>
 </html>

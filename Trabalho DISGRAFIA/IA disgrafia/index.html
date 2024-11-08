@@ -6,6 +6,25 @@
     <title>Dúvidas</title>
     <link rel="icon" type="IMAGEM.png" href="../image.png">
     <link rel="stylesheet" href="IA.css">
+    <style>
+        /* Botão de tradução */
+        .language-btn {
+            margin-top: 20px;
+            padding: 8px 15px;  /* Ajuste para botão menor */
+            font-size: 1rem;  /* Ajuste no tamanho da fonte */
+            cursor: pointer;
+            background-color: #0056b3;  /* Cor azul que combina com o restante do site */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+ 
+        /* Efeito de hover no botão */
+        .language-btn:hover {
+            background-color: #004299;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,83 +34,87 @@
             </div>
         </nav>
     </header>
- 
-    <h1>Veja as principais dúvidas sobre Disgrafia</h1>
- 
+    <div id="google_translate_element"><p>Traduzir</p></div>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt-br'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+    /* Estilo para posicionar o tradutor no canto inferior esquerdo */
+    #google_translate_element {
+      position: fixed;  /* Fixa o elemento na tela */
+      bottom: 0;        /* Posiciona no fundo */
+      left: 0;          /* Posiciona no lado esquerdo */
+      margin-left: 10px;     /* Adiciona uma margem para não colar nas bordas */
+      z-index: 9999;    /* Garante que o widget fique acima de outros conteúdos */
+      background-color: darkgray;
+      border-radius: 10px;
+    }
+  </style>
+    <h1 id="title">Veja as principais dúvidas sobre Disgrafia</h1>
     <div id="chat-box">
-        <h2>Escolha uma pergunta sobre Disgrafia.</h2>
+        <h2 id="question-title">Escolha uma pergunta sobre Disgrafia.</h2>
  
-        <button class="accordion">O que é disgrafia?</button>
-        <div class="panel">
+        <!-- Perguntas e Respostas -->
+        <button class="accordion" id="q1">O que é disgrafia?</button>
+        <div class="panel" id="a1">
             <p>Disgrafia é um transtorno de aprendizagem que afeta a habilidade de escrita, incluindo problemas com a grafia, formação de letras e coerência textual.</p>
         </div>
  
-        <button class="accordion">Quais são os sintomas da disgrafia?</button>
-        <div class="panel">
+        <button class="accordion" id="q2">Quais são os sintomas da disgrafia?</button>
+        <div class="panel" id="a2">
             <p>Os sintomas da disgrafia incluem escrita ilegível, dificuldades na coordenação motora ao escrever, espaçamento inconsistente entre palavras e letras, e dificuldade para organizar pensamentos por escrito.</p>
         </div>
  
-        <button class="accordion">Como diagnosticar a disgrafia?</button>
-        <div class="panel">
+        <button class="accordion" id="q3">Como diagnosticar a disgrafia?</button>
+        <div class="panel" id="a3">
             <p>O diagnóstico da disgrafia geralmente é feito por um psicopedagogo ou neurologista, que pode usar testes de escrita, leitura e desenvolvimento motor para avaliar a condição.</p>
         </div>
  
-        <button class="accordion">Tratamento</button>
-        <div class="panel">
+        <button class="accordion" id="q4">Tratamento</button>
+        <div class="panel" id="a4">
             <p>O tratamento da disgrafia inclui terapias ocupacionais, apoio educacional especializado e exercícios para melhorar a coordenação motora fina e as habilidades de escrita.</p>
         </div>
  
-        <button class="accordion">Causas da disgrafia</button>
-        <div class="panel">
+        <button class="accordion" id="q5">Causas da disgrafia</button>
+        <div class="panel" id="a5">
             <p>As causas da disgrafia não são totalmente conhecidas, mas acredita-se que esteja relacionada a fatores neurológicos e dificuldades no desenvolvimento motor e cognitivo.</p>
         </div>
  
-        <button class="accordion">Disgrafia tem cura?</button>
-        <div class="panel">
+        <button class="accordion" id="q6">Disgrafia tem cura?</button>
+        <div class="panel" id="a6">
             <p>Embora a disgrafia não tenha uma cura definitiva, ela pode ser gerenciada com intervenções adequadas, como terapias e suporte educacional, para ajudar a melhorar as habilidades de escrita.</p>
         </div>
  
-        <button class="accordion">Como a disgrafia afeta o desempenho escolar?</button>
-        <div class="panel">
+        <button class="accordion" id="q7">Como a disgrafia afeta o desempenho escolar?</button>
+        <div class="panel" id="a7">
             <p>A disgrafia pode prejudicar o desempenho escolar, dificultando a conclusão de atividades que envolvem escrita. Isso pode levar a frustração e baixa autoestima em crianças e adolescentes.</p>
         </div>
  
-        <button class="accordion">Quais tipos de apoio estão disponíveis para alunos com disgrafia?</button>
-        <div class="panel">
+        <button class="accordion" id="q8">Quais tipos de apoio estão disponíveis para alunos com disgrafia?</button>
+        <div class="panel" id="a8">
             <p>Os alunos com disgrafia podem se beneficiar de apoio como adaptações escolares, uso de tecnologia assistiva (por exemplo, softwares de digitação), e sessões com terapeutas ocupacionais para desenvolver habilidades motoras.</p>
         </div>
  
-        <button class="accordion">Disgrafia afeta a leitura?</button>
-        <div class="panel">
+        <button class="accordion" id="q9">Disgrafia afeta a leitura?</button>
+        <div class="panel" id="a9">
             <p>A disgrafia afeta primariamente a escrita, mas alguns indivíduos também podem ter dificuldades na leitura, especialmente quando envolvem tarefas de coordenação olho-mão e compreensão de símbolos escritos.</p>
         </div>
  
-        <button class="accordion">Quais estratégias podem ajudar pessoas com disgrafia?</button>
-        <div class="panel">
+        <button class="accordion" id="q10">Quais estratégias podem ajudar pessoas com disgrafia?</button>
+        <div class="panel" id="a10">
             <p>Algumas estratégias incluem o uso de papel pautado, suporte tecnológico (como teclados e tablets), pausas frequentes durante a escrita e atividades que fortaleçam as habilidades motoras finas.</p>
         </div>
  
-        <button class="accordion">A disgrafia está relacionada com outros transtornos?</button>
-        <div class="panel">
+        <button class="accordion" id="q11">A disgrafia está relacionada com outros transtornos?</button>
+        <div class="panel" id="a11">
             <p>Sim, a disgrafia pode estar associada a outros transtornos de aprendizagem, como dislexia, TDAH e dispraxia. No entanto, cada condição tem características distintas e deve ser avaliada individualmente.</p>
         </div>
     </div>
- 
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
 </body>
 </html>
- 
- 
